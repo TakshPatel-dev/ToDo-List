@@ -1,0 +1,60 @@
+#Img{
+ width: 25%;
+}
+body{
+    background-color: antiquewhite;
+
+}
+.Main-Container{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 10px 7px;
+
+}
+#TodoInput{
+    width: 45%;
+    height: 30px;
+    margin-right: 15px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 1.2rem;
+    
+}
+#TodoInput:focus{
+    box-shadow: 0px 0px 15px burlywood;
+}
+#Add-Button{
+    width: 10%;
+    border: none;
+    border-radius: 10px;
+    background-color: chartreuse;
+    cursor: pointer;
+    font-size: 100%;
+    padding: 10px 7px;
+}
+#Add-Button:hover{
+    box-shadow: 0px 0px 10px hsl(90, 100%, 60%) ;
+}
+.Final-Container{
+    max-width: 55%;
+    background-color:hsl(300, 24%, 70%);
+    padding: 5px 9px;
+    border-radius: 5px;
+    color:black;
+    font-size: 1.5rem;
+    box-shadow: 2px 5px 20px violet;
+    overflow:auto;
+  
+
+}
+li{
+    text-align: left;
+}
+.Cross{
+    border: none;
+    background: none;
+    cursor: pointer;
+    left: 71%;
+    position: absolute;
+}
