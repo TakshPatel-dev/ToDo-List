@@ -1,3 +1,4 @@
+
 #Img{
  width: 25%;
 }
@@ -11,6 +12,11 @@ body{
     margin-top: 20px;
     padding: 10px 7px;
 
+}
+html{
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-style:normal;
 }
 #TodoInput{
     width: 45%;
