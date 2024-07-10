@@ -1,55 +1,53 @@
+//array with tasks
+//storing inputs in local storage
+//getting input from local storage to array
+//displaying items from array
+let AddButton = document.querySelector(`#Add-Button`);
+let TodoInput = document.querySelector(`#TodoInput`);
+let task = JSON.parse(localStorage.getItem(`task`)) || [];
+let TaskDisplay = document.querySelector(`.Final-Container`);
+let Orderlist = document.querySelector(`.list`);
+let Main = document.querySelector(`.Main-Container`);
+let html = ""
+if(localStorage.getItem(`task`)){
+    TaskDisplaying()
 
-let task = []
-let doc= document.querySelector(`.list`)
-let ok = document.querySelector(`.Final-Container`)
-
-
-function Todo(){
-    
-    let tnp = {}
-    let kim = document.getElementById(`TodoInput`)
-    if(kim.value != ""){
-        let input = kim.value
-    ok.style.display = `flex`
-
-
-    
-    
-    let date = new Date();
-    let DOA = `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`
-    tnp[`todo`]=input;
-    tnp[`Datee`]=DOA;
-    task.push(tnp)
-    kim.value= ""
-    display()
-        
-    }else{window.alert(`cannot add an empty task`)}
-    
+ // task = JSON.parse(localStorage.getItem(`task`))
 
 }
-let HTML = ""
-function display(){
-task.forEach((element,index)=>{
-    HTML += `<li>${task[index].todo} <small style="font-size:1.2rem;margin-left:20px ;opacity:0.8";>Date:${task[index].Datee}</small><button class="Cross"onclick="Remove(${index})">❌</button></li>`
+let TaskNum = task.length;
+ 
+AddButton.addEventListener(`click`,()=>{
+    if (TodoInput.value == "") return window.alert(`cannot add an empty task`);
+    let tnp = {} 
+    let date = new Date();
+    let TodoInputVal = TodoInput.value;
+    {
+    tnp[`item`] = TodoInputVal
+    tnp[`date`] = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`
+    task.push(tnp)
 
-
-    
-    })
-    doc.innerHTML = HTML
-    HTML = ""
-    
-    
-}    
-
-
-function Remove(index){
-    task.splice(index,1);
-   
-    display()
-    if(task.length === 0){
-        ok.style.display = `none`
-    }else{
-           ok.style.display = `flex`
-    
-       }
+    localStorage.setItem(`task`,JSON.stringify(task))
+    TaskDisplaying()
+    TodoInput.value = ""
     }
+    
+     
+});
+;
+function TaskDisplaying(){
+    task.forEach((element,index) => {
+    html+=`<li>${task[index].item} <small>${task[index].date}</small> <button class="Cross"onclick = "Remove(${index})">❌</button></li>`
+    });
+    Orderlist.innerHTML = html
+    TaskDisplay.style.display = "block"
+    html=""
+
+}
+function Remove(index){
+    task.splice(index,1)
+    localStorage.setItem(`task`,JSON.stringify(task))
+    if(task.length === 0) return TaskDisplay.style.display = "none"
+    TaskDisplaying()
+
+}

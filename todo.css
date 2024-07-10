@@ -50,12 +50,15 @@ html{
     color:black;
     font-size: 1.5rem;
     box-shadow: 2px 5px 20px violet;
-    overflow:auto;
+    overflow: auto;
+    text-wrap:nowrap;
+
   
 
 }
 li{
     text-align: left;
+
 }
 .Cross{
     border: none;
