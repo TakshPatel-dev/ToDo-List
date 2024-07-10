@@ -9,11 +9,8 @@ let TaskDisplay = document.querySelector(`.Final-Container`);
 let Orderlist = document.querySelector(`.list`);
 let Main = document.querySelector(`.Main-Container`);
 let html = ""
-if(localStorage.getItem(`task`)){
+if(task.length != 0){
     TaskDisplaying()
-
- // task = JSON.parse(localStorage.getItem(`task`))
-
 }
 let TaskNum = task.length;
  
